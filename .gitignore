@@ -102,5 +102,3 @@ hs_err_pid*
 .gradle/
 .idea/
 build/
-src/main/java/com/shuman/transfers/config/
-src/test/
