@@ -1,4 +1,4 @@
-package com.shuman.transfers.config;
+package com.shuman.transfers.dao;
 
 import com.shuman.transfers.model.Account;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +19,7 @@ public class AccountDao {
 
     @PostConstruct
     private void init() {
+        log.info("INIT METHOD OF ACCOUNT DAO");
         Properties prop = new Properties();
         prop.setProperty("hibernate.connection.url", "jdbc:h2:mem:");
         prop.setProperty("hibernate.connection.username", "sa");

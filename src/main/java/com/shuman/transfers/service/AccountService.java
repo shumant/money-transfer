@@ -1,15 +1,17 @@
 package com.shuman.transfers.service;
 
-import com.shuman.transfers.config.AccountDao;
+import com.shuman.transfers.dao.AccountDao;
 import com.shuman.transfers.exception.LogicException;
 import com.shuman.transfers.model.Account;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Transactional(rollbackOn = {Throwable.class})
+@Singleton
 public class AccountService {
     @Inject
     private AccountDao accountDao;

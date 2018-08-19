@@ -1,5 +1,6 @@
 package com.shuman.transfers;
 
+import com.shuman.transfers.config.AppConfig;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -18,10 +19,12 @@ public class Application {
         jerseyServlet.setInitOrder(0);
 
         // Tells the Jersey Servlet which REST service/class to load.
-        jerseyServlet.setInitParameter(
-                "jersey.config.server.provider.classnames",
-                com.shuman.transfers.api.AccountApi.class.getCanonicalName());
-
+        jerseyServlet.setInitParameter("jersey.dao.server.provider.classnames",
+                                       com.shuman.transfers.api.AccountApi.class.getCanonicalName());
+        jerseyServlet.setInitParameter("jersey.config.server.provider.packages",
+                                       "com.shuman.transfers");
+        jerseyServlet.setInitParameter("javax.ws.rs.Application",
+                                       AppConfig.class.getCanonicalName());
         try {
             jettyServer.start();
             jettyServer.join();

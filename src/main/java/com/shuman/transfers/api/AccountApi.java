@@ -18,14 +18,12 @@ public class AccountApi {
     private AccountService accountService;
 
     @GET
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Account> getAccounts() {
         return accountService.getAccounts();
     }
 
     @POST
-    @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Account createAccount(AccountCreationRequest request) {

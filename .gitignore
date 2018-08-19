@@ -64,7 +64,7 @@ fabric.properties
 .gradle
 /build/
 
-# Ignore Gradle GUI config
+# Ignore Gradle GUI dao
 gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
