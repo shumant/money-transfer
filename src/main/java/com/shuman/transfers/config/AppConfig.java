@@ -22,9 +22,6 @@ public class AppConfig extends ResourceConfig {
         register(new AbstractBinder() {
             @Override
             protected void configure() {
-                bindAsContract(AccountService.class);
-                bindAsContract(AccountDao.class);
-
                 bind(AccountService.class)
                         .to(AccountService.class)
                         .in(Singleton.class);
