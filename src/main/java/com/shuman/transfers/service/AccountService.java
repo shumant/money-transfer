@@ -79,7 +79,7 @@ public class AccountService {
         }
 
         if (from.getBalance().compareTo(amount) < 0) {
-            throw new LogicException("Account %d does not have enough money to transfer. Balance: %d. Amount to transfer: %d",
+            throw new LogicException("Account %d does not have enough money to transfer. Balance: %s. Amount to transfer: %s",
                                      from.getId(), String.valueOf(from.getBalance()), String.valueOf(amount));
         }
     }

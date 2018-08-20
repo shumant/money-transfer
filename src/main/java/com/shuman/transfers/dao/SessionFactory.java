@@ -17,8 +17,7 @@ public class SessionFactory implements Factory<Session> {
 
     static {
         Properties prop = new Properties();
-//        prop.setProperty("hibernate.connection.url", "jdbc:h2:mem:money-transfers");
-        prop.setProperty("hibernate.connection.url", "jdbc:h2:~/test;AUTO_SERVER=TRUE");
+        prop.setProperty("hibernate.connection.url", "jdbc:h2:mem:money-transfers");
         prop.setProperty("hibernate.connection.username", "sa");
         prop.setProperty("hibernate.connection.password", "");
         prop.setProperty("hibernate.hbm2ddl.auto", "create");

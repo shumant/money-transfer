@@ -1,7 +1,9 @@
 package com.shuman.transfers.exception;
 
 
-public class LogicException extends RuntimeException {
+import javax.ws.rs.WebApplicationException;
+
+public class LogicException extends WebApplicationException {
     public LogicException(String message, Object... args) {
         super(String.format(message, args));
     }
