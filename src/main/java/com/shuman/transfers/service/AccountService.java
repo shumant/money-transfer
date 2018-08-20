@@ -10,8 +10,8 @@ import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Transactional(rollbackOn = {Throwable.class})
 @Singleton
+@Transactional(rollbackOn = {Throwable.class})
 public class AccountService {
     @Inject
     private AccountDao accountDao;
@@ -40,14 +40,16 @@ public class AccountService {
         if (fromId < toId) {
             accountFrom = accountDao.getWithLock(fromId);
             accountTo = accountDao.getWithLock(toId);
-        } else {
+        } else if (toId > fromId) {
             accountTo = accountDao.getWithLock(toId);
             accountFrom = accountDao.getWithLock(fromId);
+        } else {
+            throw new LogicException("Provided bank accounts IDs are the same");
         }
 
         verifyTransfer(accountFrom, accountTo, fromId, toId, amount);
 
-        accountFrom.setBalance(accountFrom.getBalance().min(amount));
+        accountFrom.setBalance(accountFrom.getBalance().subtract(amount));
         accountTo.setBalance(accountTo.getBalance().add(amount));
 
         accountDao.save(accountFrom);
