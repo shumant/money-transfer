@@ -18,7 +18,7 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("/")
 public class AppConfig extends ResourceConfig {
     public AppConfig() {
-        packages(true, "com.shuman.tranfers");
+        packages("com.shuman.transfers");
         register(new AbstractBinder() {
             @Override
             protected void configure() {
