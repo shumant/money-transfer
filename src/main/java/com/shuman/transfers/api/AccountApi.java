@@ -23,6 +23,13 @@ public class AccountApi {
         return accountService.getAccounts();
     }
 
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Account getAccountById(@PathParam("id") Long id) {
+        return accountService.getAccountById(id);
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

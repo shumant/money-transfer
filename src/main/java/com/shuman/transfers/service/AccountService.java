@@ -30,8 +30,13 @@ public class AccountService {
     }
 
     @Transactional
-    public List<Account> getAccounts () {
+    public List<Account> getAccounts() {
         return accountDao.findAll();
+    }
+
+    @Transactional
+    public Account getAccountById(Long id) {
+        return accountDao.findById(id);
     }
 
     @Transactional
@@ -64,7 +69,7 @@ public class AccountService {
         accountDao.update(accountTo);
     }
 
-    private void verifyTransfer (Account from, Account to, Long fromId, Long toId, BigDecimal amount) {
+    private void verifyTransfer(Account from, Account to, Long fromId, Long toId, BigDecimal amount) {
         if (from == null) {
             throw new LogicException("There is no account with ID %d", fromId);
         }

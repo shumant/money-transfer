@@ -34,4 +34,7 @@ public class AccountDao {
         return session.createQuery("from " + Account.class.getName()).list();
     }
 
+    public Account findById(Long id) {
+        return session.get(Account.class, id, LockMode.READ);
+    }
 }
