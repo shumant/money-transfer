@@ -4,7 +4,6 @@ import com.shuman.transfers.config.AppConfig;
 import com.shuman.transfers.model.*;
 import org.eclipse.jetty.http.HttpStatus;
 import org.glassfish.jersey.test.JerseyTest;
-import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,11 +25,11 @@ import java.util.concurrent.*;
 @SuppressWarnings("BigDecimalMethodWithoutRoundingCalled")
 public class IntegrationTest extends JerseyTest {
     private static final String ACCOUNTS_PATH = "/accounts";
-    private static final String TRANSFER_PATH = ACCOUNTS_PATH + "/transfer";
+    private static final String TRANSFER_PATH =  "/transfers";
 
     private static final int ACCOUNTS_COUNT = 15;
-    private static final Random random = new Random();
     private static final int CONCURRENCY_LEVEL = 40;
+    private static final Random random = new Random();
 
 
     private final int account1Id = 1;

@@ -40,28 +40,4 @@ public class AccountApi {
 
         return accountService.createAccount(request.getBalance());
     }
-
-    @POST
-    @Path("/transfer")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public TransferResponse transferMoney(TransferRequest request) {
-        if (request == null) {
-            throw new LogicException("No transfer request found");
-        }
-
-        if (request.getAccountFromId() == null) {
-            throw new LogicException("Please specify account from ID");
-        }
-        if (request.getAccountToId() == null) {
-            throw new LogicException("Please specify account to ID");
-        }
-        if (request.getAmountToTransfer() == null) {
-            throw new LogicException("Please amount to transfer");
-        }
-
-        accountService.transferMoney(request.getAccountFromId(), request.getAccountToId(), request.getAmountToTransfer());
-        return new TransferResponse(true, "Transfer was successful");
-    }
-
 }

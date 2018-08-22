@@ -5,6 +5,7 @@ import com.shuman.transfers.dao.AccountDao;
 import com.shuman.transfers.dao.SessionFactory;
 import com.shuman.transfers.exception.LogicExceptionMapper;
 import com.shuman.transfers.service.AccountService;
+import com.shuman.transfers.service.TransferService;
 import org.glassfish.hk2.api.InterceptionService;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.jackson.JacksonFeature;
@@ -24,6 +25,9 @@ public class AppConfig extends ResourceConfig {
             protected void configure() {
                 bindAsContract(AccountService.class)
                         .in(Singleton.class);
+                bindAsContract(TransferService.class)
+                        .in(Singleton.class);
+
                 bindAsContract(AccountDao.class)
                         .in(Singleton.class);
 
