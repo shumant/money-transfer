@@ -23,6 +23,8 @@ public class SessionFactory implements Factory<Session> {
         prop.setProperty("hibernate.hbm2ddl.auto", "create");
         prop.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 
+        prop.setProperty("javax.persistence.lock.timeout", "4000");
+
         hibernateSessionFactory = new Configuration()
                 .addPackage("com.shuman.model")
                 .addProperties(prop)

@@ -53,7 +53,7 @@ public class AccountService {
         if (fromId < toId) {
             accountFrom = accountDao.getWithLock(fromId);
             accountTo = accountDao.getWithLock(toId);
-        } else if (toId > fromId) {
+        } else if (toId < fromId) {
             accountTo = accountDao.getWithLock(toId);
             accountFrom = accountDao.getWithLock(fromId);
         } else {
