@@ -101,13 +101,12 @@ public class IntegrationTest extends JerseyTest {
         // invoke tasks asynchronously
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2);
         List<Future<Object>> futures = executorService.invokeAll(transferTasks);
-
         for (Future<Object> future : futures) {
-            future.get();
+            future.get(); // this will throw Exception if anything goes wrong in async task
         }
 
-        // verify account state
-        for (int i = 1; i < ACCOUNTS_COUNT; i++) {
+        // verify accounts state
+        for (int i = 1; i <= ACCOUNTS_COUNT; i++) {
             verifyAccountState(new Account((long) i, accounts[i - 1]));
         }
     }
