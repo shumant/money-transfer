@@ -10,6 +10,9 @@ transfers between accounts.
 - H2 for in-memory database
 - Gradle as build system
 
+Unit-tests are omitted because the project is really tiny.
+API workflow is presented in IntegrationTest.java 
+
 To run tests and build jar:
 > ./gradlew clean build
 
