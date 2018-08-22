@@ -13,5 +13,5 @@ transfers between accounts.
 To run tests and build jar:
 > ./gradlew clean build
 
-After that for run app as server on port 8080:
+After that to run the app as server on port 8080:
 > java -jar build/libs/money-transfer-1.0-SNAPSHOT.jar
